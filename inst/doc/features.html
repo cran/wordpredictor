@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Features</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Features</h1>
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This document describes all the features provided by the <strong>wordpredictor</strong> package. It first describes how to generate n-gram models. Next it describes how to evaluate the performance of the n-gram models. Finally it describes how to make word predictions using the n-gram model.</p>
+</div>
+<div id="model-generation" class="section level2">
+<h2>Model Generation</h2>
+<p>The <strong>wordpredictor</strong> package provides several classes that can be used to generate n-gram models. These classes may be used to generate n-gram models step by step. An alternative is to use the <strong>ModelGenerator</strong> class which combines all the steps and provides a single method for generating n-gram models.</p>
+<p>The following steps are involved in generating n-gram models:</p>
+<div id="data-exploration" class="section level3">
+<h3>Data Exploration</h3>
+<p>The first step in generating a n-gram model is data exploration. This involves determining the type of textual content and various text related statistics. The type of text may be news content, blog posts, Twitter feeds, product reviews, customer chat history etc. Example of text related statistics are line count, word count, average line length and input file size.</p>
+<p>It is also important to determine the unwanted words and symbols in the data such as vulgar words, punctuation symbols, non-alphabetical symbols etc. The <strong>wordpredictor</strong> package provides the <strong>DataAnalyzer</strong> class which can be used to find out statistics about the input data. The following example shows how to get statistics on all text files within a folder:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="st">&quot;test.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="st">&quot;validate.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="st">&quot;validate-clean.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="st">&quot;test-clean.txt&quot;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co"># The DataAnalyzer object is created</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">da &lt;-<span class="st"> </span>DataAnalyzer<span class="op">$</span><span class="kw">new</span>(<span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co"># Information on all text files in the ed folder is returned</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">fi &lt;-<span class="st"> </span>da<span class="op">$</span><span class="kw">get_file_info</span>(ed)</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co"># The file information is printed</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="kw">print</span>(fi)</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt; $file_stats</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;                                   fn total_lc max_ll min_ll mean_ll   size</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; 1     /tmp/RtmpErGkzV/test-clean.txt       73     50     25      39 2.8 Kb</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; 2           /tmp/RtmpErGkzV/test.txt       73     51     28      41   3 Kb</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt; 3 /tmp/RtmpErGkzV/validate-clean.txt       75     48     10      37 2.8 Kb</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">#&gt; 4       /tmp/RtmpErGkzV/validate.txt       73     50     31      40 2.9 Kb</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt; $overall_stats</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">#&gt;   total_lc max_ll min_ll mean_ll total_s</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">#&gt; 1      294     51     31      41 11.5 Kb</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The word count of a text file can be fetched using the command: <code>cat file-name | wc -w</code>. This command should work on all Unix based systems.</p>
+</div>
+<div id="data-sampling" class="section level3">
+<h3>Data Sampling</h3>
+<p>The next step is to generate training, testing and validation samples from the input text file. If there are many input text files, then they can be combined to a single file using the command: <code>cat file-1 file-2 file3 &gt; output-file</code>. The contents of the combined text file may need to be randomized.</p>
+<p>The <strong>wordpredictor</strong> package provides the <strong>DataSampler</strong> class which can be used to generate a random sample containing given number of lines. The following example shows how to generate a random sample of size 10 Mb from an input text file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;input.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># The sample size as a proportion of the input.txt file</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">ssize &lt;-<span class="st"> </span><span class="fl">0.1</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co"># The data file path</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">dfp &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/input.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># The object size is formatted</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">obj_size &lt;-<span class="st"> </span><span class="kw">file.size</span>(dfp)<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># The proportion of data to sample</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">prop &lt;-<span class="st"> </span>(ssize<span class="op">/</span>obj_size)</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># An object of class DataSampler is created</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">ds &lt;-<span class="st"> </span>DataSampler<span class="op">$</span><span class="kw">new</span>(<span class="dt">dir =</span> ed, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co"># The sample file is generated.</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co"># The randomized sample is saved to the file train.txt in the ed folder</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">ds<span class="op">$</span><span class="kw">generate_sample</span>(</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">    <span class="dt">fn =</span>  <span class="st">&quot;input.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">    <span class="dt">ss =</span> prop,</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    <span class="dt">ic =</span> F,</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">    <span class="dt">ir =</span> T,</a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">    <span class="dt">ofn =</span> <span class="st">&quot;train.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">    <span class="dt">is =</span> T</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">)</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>Usually we need a train data set for generating the n-gram model. A test data set for testing the model and a validation data set for evaluating the performance of the model. The following example shows how to generate the train, test and validation files. The train file contains the first 80% of the lines, the test set contains the next 10% of the lines. The remaining lines are in the validation set.</p>
+<p>The data in the validation file must be different from the data in the train file. Otherwise it can result in over-fitting of the model. When a model is over-fitted, the model evaluation results will be exaggerated, overly optimistic and unreliable. So care should be taken to ensure that the data in the validation and train files is different.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;input.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># An object of class DataSampler is created</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">ds &lt;-<span class="st"> </span>DataSampler<span class="op">$</span><span class="kw">new</span>(<span class="dt">dir =</span> ed, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># The train, test and validation files are generated</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">ds<span class="op">$</span><span class="kw">generate_data</span>(</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    <span class="dt">fn =</span>  <span class="st">&quot;input.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    <span class="dt">percs =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">        <span class="st">&quot;train&quot;</span> =<span class="st"> </span><span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="st">&quot;test&quot;</span> =<span class="st"> </span><span class="fl">0.1</span>,</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="st">&quot;validate&quot;</span> =<span class="st"> </span><span class="fl">0.1</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    )</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">)</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>In the above example, <strong>dir</strong> parameter is the directory containing the <strong>input.txt</strong> file and the generated test, validation and train data files.</p>
+</div>
+<div id="data-cleaning" class="section level3">
+<h3>Data Cleaning</h3>
+<p>The next step is to remove unwanted symbols and words from the input text file. This reduces the memory requirement of the n-gram model and makes it more efficient. Example of unwanted words are vulgar words, words that are not part of the vocabulary, punctuation, numbers, non-printable characters and extra spaces.</p>
+<p>The <strong>wordpredictor</strong> package provides the <strong>DataCleaner</strong> class which can be used to remove unwanted words and symbols from text files. The following example shows how to clean a given text file:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;input.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co"># The data file path</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">fn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/input.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># The clean file path</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">cfn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/input-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co"># The data cleaning options</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">dc_opts =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">    <span class="st">&quot;min_words&quot;</span> =<span class="st"> </span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="st">&quot;to_lower&quot;</span> =<span class="st"> </span>T,</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">    <span class="st">&quot;remove_stop&quot;</span> =<span class="st"> </span>F,</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="st">&quot;remove_punct&quot;</span> =<span class="st"> </span>T,</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="st">&quot;remove_non_dict&quot;</span> =<span class="st"> </span>T,</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">    <span class="st">&quot;remove_non_alpha&quot;</span> =<span class="st"> </span>T,</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">    <span class="st">&quot;remove_extra_space&quot;</span> =<span class="st"> </span>T,</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">    <span class="st">&quot;remove_bad&quot;</span> =<span class="st"> </span>F,</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">    <span class="st">&quot;output_file&quot;</span> =<span class="st"> </span>cfn</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">)</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co"># The data cleaner object is created</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">dc &lt;-<span class="st"> </span>DataCleaner<span class="op">$</span><span class="kw">new</span>(fn, dc_opts, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co"># The sample file is cleaned and saved as input-clean.txt in the ed dir</span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">dc<span class="op">$</span><span class="kw">clean_file</span>()</a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The <strong>clean_file</strong> method reads a certain number of lines at a time, cleans the lines of text and saves them to an output text file. It can be used for cleaning large text files.</p>
+</div>
+<div id="tokenization" class="section level3">
+<h3>Tokenization</h3>
+<p>The next step is to generate n-gram tokens from the cleaned text file. The <strong>TokenGenerator</strong> class allows generating n-gram tokens of given size from a given input text file. The following example shows how to generate n-grams tokens of size 1,2,3 and 4:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;test-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co"># The test file path</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">fn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/test-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co"># The n-grams are generated</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="co"># The ngram number is set</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">  tg_opts =<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;n&quot;</span> =<span class="st"> </span>n, <span class="st">&quot;save_ngrams&quot;</span> =<span class="st"> </span>T, <span class="dt">dir =</span> ed)</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">  <span class="co"># The TokenGenerator object is created</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">  tg &lt;-<span class="st"> </span>TokenGenerator<span class="op">$</span><span class="kw">new</span>(fn, tg_opts, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">  <span class="co"># The ngram tokens are generated</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">  tg<span class="op">$</span><span class="kw">generate_tokens</span>()</a>
+<a class="sourceLine" id="cb5-16" data-line-number="16">}</a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The above code generates the files <strong>n1.RDS, n2.RDS, n3.RDS and n4.RDS</strong> in the data directory. These files contains n-gram tokens along with their frequencies. N-grams of larger size provide more context. Usually n-grams of size 4 are generated.</p>
+<p>Two important customization options supported by the <strong>TokenGenerator</strong> class are <strong>min_freq</strong> and <strong>stem_words</strong>. <strong>min_freq</strong> sets minimum frequency for n-gram tokens. All n-gram tokens with frequency less than <strong>min_freq</strong> are excluded.</p>
+<p>The <strong>stem_words</strong> option is used to transform n-gram prefix components to their stems. The next word is not transformed.</p>
+<p>The n-gram token frequencies may be analyzed using the <strong>DataAnalyzer</strong> class. The following example displays the top most occurring 2-gram tokens:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;n2.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># The ngram file name</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">fn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/n2.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co"># The DataAnalyzer object is created</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">da &lt;-<span class="st"> </span>DataAnalyzer<span class="op">$</span><span class="kw">new</span>(fn, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co"># The top features plot is checked</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">df &lt;-<span class="st"> </span>da<span class="op">$</span><span class="kw">plot_n_gram_stats</span>(<span class="dt">opts =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="st">&quot;type&quot;</span> =<span class="st"> &quot;top_features&quot;</span>,</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">    <span class="st">&quot;n&quot;</span> =<span class="st"> </span><span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">    <span class="st">&quot;save_to&quot;</span> =<span class="st"> </span><span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">    <span class="st">&quot;dir&quot;</span> =<span class="st"> </span>ed</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">))</a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The following example shows the distribution of word frequencies:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;n2.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co"># The ngram file name</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">fn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/n2.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co"># The DataAnalyzer object is created</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">da &lt;-<span class="st"> </span>DataAnalyzer<span class="op">$</span><span class="kw">new</span>(fn, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co"># The top features plot is checked</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">df &lt;-<span class="st"> </span>da<span class="op">$</span><span class="kw">plot_n_gram_stats</span>(<span class="dt">opts =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="st">&quot;type&quot;</span> =<span class="st"> &quot;coverage&quot;</span>,</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    <span class="st">&quot;n&quot;</span> =<span class="st"> </span><span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="st">&quot;save_to&quot;</span> =<span class="st"> </span><span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">    <span class="st">&quot;dir&quot;</span> =<span class="st"> </span>ed</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">))</a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The following example returns top 10 2-gram tokens that start with <strong>and_</strong>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;n2.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co"># The ngram file name</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">fn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/n2.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co"># The DataAnalyzer object is created</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">da &lt;-<span class="st"> </span>DataAnalyzer<span class="op">$</span><span class="kw">new</span>(<span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="co"># Bi-grams starting with &quot;and_&quot; are returned</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">df &lt;-<span class="st"> </span>da<span class="op">$</span><span class="kw">get_ngrams</span>(<span class="dt">fn =</span> fn, <span class="dt">c =</span> <span class="dv">10</span>, <span class="dt">pre =</span> <span class="st">&quot;^and_*&quot;</span>)</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="co"># The data frame is sorted by frequency</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">df &lt;-<span class="st"> </span>df[<span class="kw">order</span>(df<span class="op">$</span>freq, <span class="dt">decreasing =</span> T),]</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="co"># The first 10 rows of the data frame are printed</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">knitr<span class="op">::</span><span class="kw">kable</span>(df[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,], <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Prefix&quot;</span>, <span class="st">&quot;Frequency&quot;</span>))</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Prefix</th>
+<th align="right">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">and_the</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">and_cart</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">and_fired</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">and_forget</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">and_leave</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">and_open</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">and_out</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">and_phrase</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">and_say</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">and_tea</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+</div>
+<div id="transition-probabilities" class="section level3">
+<h3>Transition Probabilities</h3>
+<p>The next step in generating the n-gram model is to generate transition probabilities (tp) from the n-gram files. The <strong>TPGenerator</strong> class is used to generate the tps. For each n-gram token file a corresponding tp file is generated.</p>
+<p>The tp files are then combined into a single file containing tp data for n-grams of size 1, 2, 3, 4 etc.</p>
+<p>The following example shows how to generate combined tps for n-grams of size 1, 2, 3 and 4:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;n1.RDS&quot;</span>, <span class="st">&quot;n2.RDS&quot;</span>, <span class="st">&quot;n3.RDS&quot;</span>, <span class="st">&quot;n4.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co"># The TPGenerator object is created</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">tp &lt;-<span class="st"> </span>TPGenerator<span class="op">$</span><span class="kw">new</span>(<span class="dt">opts =</span> <span class="kw">list</span>(<span class="dt">n =</span> <span class="dv">4</span>, <span class="dt">dir =</span> ed), <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co"># The combined transition probabilities are generated</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">tp<span class="op">$</span><span class="kw">generate_tp</span>()</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The above code produces the file <strong>model-4.RDS</strong>.</p>
+</div>
+<div id="the-model-file" class="section level3">
+<h3>The model file</h3>
+<p>The final step is to generate a n-gram model file from the files generated in the previous steps. The <strong>Model</strong> class contains the method <strong>load_model</strong>, which reads the combined tps files and other files that are used by the model. An instance of the <strong>Model</strong> class represents the n-gram model.</p>
+</div>
+<div id="generating-the-model-in-one-step" class="section level3">
+<h3>Generating the model in one step</h3>
+<p>All the previous steps may be combined into a single step. The <strong>ModelGenerator</strong> class allows generating the final n-gram model using a single method call. The following example generates a n-gram model using default data cleaning and tokenization options:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;input.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co"># The following code generates n-gram model using default options for data</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="co"># cleaning and tokenization. See the following section on how to customize these</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="co"># options. Note that input.txt is the name of the input data file. It should be</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co"># present in the data directory. dir is the directory containing the input and output files. It is set to the path of the environment directory, ed.</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="co"># ModelGenerator class object is created</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">mg &lt;-<span class="st"> </span>ModelGenerator<span class="op">$</span><span class="kw">new</span>(</a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">    <span class="dt">name =</span> <span class="st">&quot;def-model&quot;</span>,</a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">    <span class="dt">desc =</span> <span class="st">&quot;N-gram model generating using default options&quot;</span>,</a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">    <span class="dt">fn =</span> <span class="st">&quot;def-model.RDS&quot;</span>,</a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">    <span class="dt">df =</span> <span class="st">&quot;input.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">    <span class="dt">n =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">    <span class="dt">ssize =</span> <span class="fl">0.1</span>,</a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">    <span class="dt">dir =</span> ed,</a>
+<a class="sourceLine" id="cb13-20" data-line-number="20">    <span class="dt">dc_opts =</span> <span class="kw">list</span>(),</a>
+<a class="sourceLine" id="cb13-21" data-line-number="21">    <span class="dt">tg_opts =</span> <span class="kw">list</span>(),</a>
+<a class="sourceLine" id="cb13-22" data-line-number="22">    <span class="dt">ve =</span> ve</a>
+<a class="sourceLine" id="cb13-23" data-line-number="23">)</a>
+<a class="sourceLine" id="cb13-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb13-25" data-line-number="25"><span class="co"># Generates n-gram model. The output is the file def-model.RDS</span></a>
+<a class="sourceLine" id="cb13-26" data-line-number="26">mg<span class="op">$</span><span class="kw">generate_model</span>()</a>
+<a class="sourceLine" id="cb13-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb13-28" data-line-number="28"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb13-29" data-line-number="29"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+</div>
+</div>
+<div id="evaluating-the-model-performance" class="section level2">
+<h2>Evaluating the model performance</h2>
+<p>The <strong>wordpredictor</strong> package provides the <strong>ModelEvaluator</strong> class for evaluating the performance of the generated n-gram model. Intrinsic and Extrinsic evaluation are supported. Also the performance of several n-gram models may be compared.</p>
+<p>The following example performs Intrinsic evaluation. It measures the Perplexity score for each sentence in the <strong>validation.txt</strong> file, that was generated in the data sampling step. It returns the minimum, mean and maximum Perplexity score for each line.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;def-model.RDS&quot;</span>, <span class="st">&quot;validate-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co"># The model file name</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">mfn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/def-model.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co"># The path to the cleaned validation file</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">vfn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/validate-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co"># ModelEvaluator class object is created</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11">me &lt;-<span class="st"> </span>ModelEvaluator<span class="op">$</span><span class="kw">new</span>(<span class="dt">mf =</span> mfn, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co"># The intrinsic evaluation is performed on first 20 lines</span></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13">stats &lt;-<span class="st"> </span>me<span class="op">$</span><span class="kw">intrinsic_evaluation</span>(<span class="dt">lc =</span> <span class="dv">20</span>, <span class="dt">fn =</span> vfn)</a>
+<a class="sourceLine" id="cb14-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+<p>The following example performs Extrinsic evaluation. It measures the accuracy score for each sentence in <strong>validation.txt</strong> file. For each sentence the model is used to predict the last word in the sentence given the previous words. If the last word was correctly predicted, then the prediction is considered to be accurate.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;def-model.RDS&quot;</span>, <span class="st">&quot;validate-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co"># The model file name</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">mfn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/def-model.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co"># The path to the cleaned validation file</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">vfn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/validate-clean.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co"># ModelEvaluator class object is created</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">me &lt;-<span class="st"> </span>ModelEvaluator<span class="op">$</span><span class="kw">new</span>(<span class="dt">mf =</span> mfn, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="co"># The intrinsic evaluation is performed on first 100 lines</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">stats &lt;-<span class="st"> </span>me<span class="op">$</span><span class="kw">extrinsic_evaluation</span>(<span class="dt">lc =</span> <span class="dv">100</span>, <span class="dt">fn =</span> vfn)</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+</div>
+<div id="making-word-predictions" class="section level2">
+<h2>Making word predictions</h2>
+<p>The n-gram model generated in the previous step can be used to predict the next word given a set of words. The following example shows how to predict the next word. It returns the 3 possible next words along with their probabilities.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># The required files</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">rf &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;def-model.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co"># The test environment is setup</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">ed &lt;-<span class="st"> </span><span class="kw">setup_env</span>(rf, ve)</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="co"># The model file name</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">mfn &lt;-<span class="st"> </span><span class="kw">paste0</span>(ed, <span class="st">&quot;/def-model.RDS&quot;</span>)</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="co"># An object of class ModelPredictor is created. The mf parameter is the name of</span></a>
+<a class="sourceLine" id="cb16-9" data-line-number="9"><span class="co"># the model file that was generated in the previous example.</span></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">mp &lt;-<span class="st"> </span>ModelPredictor<span class="op">$</span><span class="kw">new</span>(<span class="dt">mf =</span> mfn, <span class="dt">ve =</span> ve)</a>
+<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co"># Given the words: &quot;how are&quot;, the next word is predicted. The top 3 most likely</span></a>
+<a class="sourceLine" id="cb16-12" data-line-number="12"><span class="co"># next words are returned along with their respective probabilities.</span></a>
+<a class="sourceLine" id="cb16-13" data-line-number="13">res &lt;-<span class="st"> </span>mp<span class="op">$</span><span class="kw">predict_word</span>(<span class="dt">words =</span> <span class="st">&quot;how are&quot;</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb16-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb16-15" data-line-number="15"><span class="co"># The test envionment is cleaned up</span></a>
+<a class="sourceLine" id="cb16-16" data-line-number="16"><span class="kw">clean_up</span>(ve)</a></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
