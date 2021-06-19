@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
-    fig.path = "man/figures/VIGNETTES-"
+    fig.path = "man/figures/"
 )
 
 ## ----setup, echo=FALSE, results='hide', message=FALSE-------------------------
@@ -52,7 +52,7 @@ fi <- da$get_file_info(ed)
 # The file information is printed
 print(fi)
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----data-sampling-1, cache=TRUE----------------------------------------------
@@ -83,7 +83,7 @@ ds$generate_sample(
     is = T
 )
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----data-sampling-2, cache=TRUE----------------------------------------------
@@ -104,7 +104,7 @@ ds$generate_data(
     )
 )
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----data-cleaning, cache=TRUE------------------------------------------------
@@ -134,7 +134,7 @@ dc <- DataCleaner$new(fn, dc_opts, ve = ve)
 # The sample file is cleaned and saved as input-clean.txt in the ed dir
 dc$clean_file()
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----tokenization-1, cache=TRUE-----------------------------------------------
@@ -155,10 +155,10 @@ for (n in 1:4) {
   tg$generate_tokens()
 }
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
-## ----tokenization-2, cache=TRUE, fig.width=5, fig.height=3--------------------
+## ----tokenization-2, cache=TRUE, out.width="70%", out.height="70%"------------
 # The required files
 rf <- c("n2.RDS")
 # The test environment is setup
@@ -172,14 +172,18 @@ da <- DataAnalyzer$new(fn, ve = ve)
 df <- da$plot_n_gram_stats(opts = list(
     "type" = "top_features",
     "n" = 10,
-    "save_to" = NULL,
-    "dir" = ed
+    "save_to" = "png",
+    "dir" = "./man/figures"
 ))
 
-# The test envionment is cleaned up
+# The output file path
+fn <- paste0("./man/figures/top_features.png")
+knitr::include_graphics(fn)
+
+# The test environment is cleaned up
 clean_up(ve)
 
-## ----tokenization-3, cache=TRUE, fig.width=5, fig.height=3--------------------
+## ----tokenization-3, cache=TRUE, out.width="70%", out.height="70%"------------
 # The required files
 rf <- c("n2.RDS")
 # The test environment is setup
@@ -193,11 +197,15 @@ da <- DataAnalyzer$new(fn, ve = ve)
 df <- da$plot_n_gram_stats(opts = list(
     "type" = "coverage",
     "n" = 10,
-    "save_to" = NULL,
-    "dir" = ed
+    "save_to" = "png",
+    "dir" = "./man/figures"
 ))
 
-# The test envionment is cleaned up
+# The output file path
+fn <- paste0("./man/figures/coverage.png")
+knitr::include_graphics(fn)
+
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----tokenization-4, cache=TRUE-----------------------------------------------
@@ -217,7 +225,7 @@ df <- df[order(df$freq, decreasing = T),]
 # The first 10 rows of the data frame are printed
 knitr::kable(df[1:10,], col.names = c("Prefix", "Frequency"))
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----transition-probabilities, cache=TRUE-------------------------------------
@@ -230,7 +238,7 @@ tp <- TPGenerator$new(opts = list(n = 4, dir = ed), ve = ve)
 # The combined transition probabilities are generated
 tp$generate_tp()
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----generate-model, results='hide', cache=TRUE-------------------------------
@@ -261,7 +269,7 @@ mg <- ModelGenerator$new(
 # Generates n-gram model. The output is the file def-model.RDS
 mg$generate_model()
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----model-evaluation-1, cache=TRUE-------------------------------------------
@@ -279,7 +287,7 @@ me <- ModelEvaluator$new(mf = mfn, ve = ve)
 # The intrinsic evaluation is performed on first 20 lines
 stats <- me$intrinsic_evaluation(lc = 20, fn = vfn)
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----model-evaluation-2, cache=TRUE-------------------------------------------
@@ -297,7 +305,7 @@ me <- ModelEvaluator$new(mf = mfn, ve = ve)
 # The intrinsic evaluation is performed on first 100 lines
 stats <- me$extrinsic_evaluation(lc = 100, fn = vfn)
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----predict-word, cache=TRUE-------------------------------------------------
@@ -315,6 +323,6 @@ mp <- ModelPredictor$new(mf = mfn, ve = ve)
 # next words are returned along with their respective probabilities.
 res <- mp$predict_word(words = "how are", 3)
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 

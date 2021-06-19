@@ -43,9 +43,8 @@ ed <- setup_env(rf, ve)
 # The following code generates n-gram model using default options for data
 # cleaning and tokenization. See the following section on how to customize these
 # options. Note that input.txt is the name of the input data file. It should be
-# present in the data directory. ddir is the data directory. mdir is the model
-# directory. The output model file, which is def-model.RDS will be placed in
-# this directory.
+# present in the ed directory. The generated model file is also placed in this
+# directory.
 
 # ModelGenerator class object is created
 mg <- ModelGenerator$new(
@@ -65,7 +64,7 @@ mg <- ModelGenerator$new(
 # ./data/model/def-model.RDS
 mg$generate_model()
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----model-evaluation-1, cache=TRUE-------------------------------------------
@@ -83,7 +82,7 @@ me <- ModelEvaluator$new(mf = mfn, ve = ve)
 # The intrinsic evaluation is performed on first 20 lines
 stats <- me$intrinsic_evaluation(lc = 20, fn = vfn)
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----model-evaluation-2, cache=TRUE-------------------------------------------
@@ -101,7 +100,7 @@ me <- ModelEvaluator$new(mf = mfn, ve = ve)
 # The intrinsic evaluation is performed on first 100 lines
 stats <- me$extrinsic_evaluation(lc = 100, fn = vfn)
 
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
 ## ----predict-word, cache=TRUE-------------------------------------------------
@@ -118,6 +117,6 @@ mp <- ModelPredictor$new(mf = mfn, ve = ve)
 # Given the words: "how are", the next word is predicted. The top 3 most likely
 # next words are returned along with their respective probabilities.
 res <- mp$predict_word(words = "how are", 3)
-# The test envionment is cleaned up
+# The test environment is cleaned up
 clean_up(ve)
 
