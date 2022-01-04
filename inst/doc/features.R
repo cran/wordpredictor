@@ -2,13 +2,13 @@
 knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
-    fig.path = "man/figures/"
+    fig.path = "reference/figures/"
 )
 
 ## ----setup, echo=FALSE, results='hide', message=FALSE-------------------------
 library(wordpredictor)
 
-# If level of verbosity in the information messages
+# The level of verbosity in the information messages
 ve <- 0
 
 #' @description
@@ -34,7 +34,7 @@ clean_up <- function(ve) {
     em$td_env(T)
 }
 
-## ----data-exploration, cache=TRUE---------------------------------------------
+## ----data-exploration, cache=FALSE--------------------------------------------
 # The required files
 rf <- c(
   "test.txt",
@@ -55,7 +55,7 @@ print(fi)
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----data-sampling-1, cache=TRUE----------------------------------------------
+## ----data-sampling-1, cache=FALSE---------------------------------------------
 # The required files
 rf <- c("input.txt")
 # The test environment is setup
@@ -86,7 +86,7 @@ ds$generate_sample(
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----data-sampling-2, cache=TRUE----------------------------------------------
+## ----data-sampling-2, cache=FALSE---------------------------------------------
 # The required files
 rf <- c("input.txt")
 # The test environment is setup
@@ -107,7 +107,7 @@ ds$generate_data(
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----data-cleaning, cache=TRUE------------------------------------------------
+## ----data-cleaning, cache=FALSE-----------------------------------------------
 # The required files
 rf <- c("input.txt")
 # The test environment is setup
@@ -137,7 +137,7 @@ dc$clean_file()
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----tokenization-1, cache=TRUE-----------------------------------------------
+## ----tokenization-1, cache=FALSE----------------------------------------------
 # The required files
 rf <- c("test-clean.txt")
 # The test environment is setup
@@ -158,7 +158,7 @@ for (n in 1:4) {
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----tokenization-2, cache=TRUE, out.width="70%", out.height="70%"------------
+## ----tokenization-2, cache=FALSE, out.width="70%", out.height="70%"-----------
 # The required files
 rf <- c("n2.RDS")
 # The test environment is setup
@@ -173,17 +173,17 @@ df <- da$plot_n_gram_stats(opts = list(
     "type" = "top_features",
     "n" = 10,
     "save_to" = "png",
-    "dir" = "./man/figures"
+    "dir" = "./reference/figures"
 ))
 
 # The output file path
-fn <- paste0("./man/figures/top_features.png")
+fn <- paste0("./reference/figures/top_features.png")
 knitr::include_graphics(fn)
 
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----tokenization-3, cache=TRUE, out.width="70%", out.height="70%"------------
+## ----tokenization-3, cache=FALSE, out.width="70%", out.height="70%"-----------
 # The required files
 rf <- c("n2.RDS")
 # The test environment is setup
@@ -198,17 +198,17 @@ df <- da$plot_n_gram_stats(opts = list(
     "type" = "coverage",
     "n" = 10,
     "save_to" = "png",
-    "dir" = "./man/figures"
+    "dir" = "./reference/figures"
 ))
 
 # The output file path
-fn <- paste0("./man/figures/coverage.png")
+fn <- paste0("./reference/figures/coverage.png")
 knitr::include_graphics(fn)
 
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----tokenization-4, cache=TRUE-----------------------------------------------
+## ----tokenization-4, cache=FALSE----------------------------------------------
 # The required files
 rf <- c("n2.RDS")
 # The test environment is setup
@@ -228,7 +228,7 @@ knitr::kable(df[1:10,], col.names = c("Prefix", "Frequency"))
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----transition-probabilities, cache=TRUE-------------------------------------
+## ----transition-probabilities, cache=FALSE------------------------------------
 # The required files
 rf <- c("n1.RDS", "n2.RDS", "n3.RDS", "n4.RDS")
 # The test environment is setup
@@ -241,7 +241,7 @@ tp$generate_tp()
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----generate-model, results='hide', cache=TRUE-------------------------------
+## ----generate-model, results='hide', cache=FALSE------------------------------
 # The required files
 rf <- c("input.txt")
 # The test environment is setup
@@ -272,7 +272,7 @@ mg$generate_model()
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----model-evaluation-1, cache=TRUE-------------------------------------------
+## ----model-evaluation-1, cache=FALSE------------------------------------------
 # The required files
 rf <- c("def-model.RDS", "validate-clean.txt")
 # The test environment is setup
@@ -290,7 +290,7 @@ stats <- me$intrinsic_evaluation(lc = 20, fn = vfn)
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----model-evaluation-2, cache=TRUE-------------------------------------------
+## ----model-evaluation-2, cache=FALSE------------------------------------------
 # The required files
 rf <- c("def-model.RDS", "validate-clean.txt")
 # The test environment is setup
@@ -308,7 +308,7 @@ stats <- me$extrinsic_evaluation(lc = 100, fn = vfn)
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----predict-word, cache=TRUE-------------------------------------------------
+## ----predict-word, cache=FALSE------------------------------------------------
 # The required files
 rf <- c("def-model.RDS")
 # The test environment is setup

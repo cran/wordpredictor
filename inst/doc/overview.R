@@ -2,13 +2,13 @@
 knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
-    fig.path = "man/figures/VIGNETTES-"
+    fig.path = "reference/figures/"
 )
 
 ## ----setup, echo=FALSE, results='hide', message=FALSE-------------------------
 library(wordpredictor)
 
-# If level of verbosity in the information messages
+# The level of verbosity in the information messages
 ve <- 0
 
 #' @description
@@ -34,7 +34,7 @@ clean_up <- function(ve) {
     em$td_env(T)
 }
 
-## ----generate-model, results='hide', cache=TRUE-------------------------------
+## ----generate-model, results='hide', cache=FALSE------------------------------
 # The required files
 rf <- c("input.txt")
 # The test environment is setup
@@ -67,7 +67,7 @@ mg$generate_model()
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----model-evaluation-1, cache=TRUE-------------------------------------------
+## ----model-evaluation-1, cache=FALSE------------------------------------------
 # The required files
 rf <- c("def-model.RDS", "validate-clean.txt")
 # The test environment is setup
@@ -85,7 +85,7 @@ stats <- me$intrinsic_evaluation(lc = 20, fn = vfn)
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----model-evaluation-2, cache=TRUE-------------------------------------------
+## ----model-evaluation-2, cache=FALSE------------------------------------------
 # The required files
 rf <- c("def-model.RDS", "validate-clean.txt")
 # The test environment is setup
@@ -103,7 +103,7 @@ stats <- me$extrinsic_evaluation(lc = 100, fn = vfn)
 # The test environment is cleaned up
 clean_up(ve)
 
-## ----predict-word, cache=TRUE-------------------------------------------------
+## ----predict-word, cache=FALSE------------------------------------------------
 # The required files
 rf <- c("def-model.RDS", "validate-clean.txt")
 # The test environment is setup
