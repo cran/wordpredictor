@@ -31,7 +31,36 @@ clean_up <- function(ve) {
     # An object of class EnvManager is created
     em <- EnvManager$new(ve = ve)
     # The test environment is removed
-    em$td_env(T)
+    em$td_env(F)
+}
+
+## ----example-prerequisite, echo=TRUE, message=FALSE, results='hide'-----------
+library(wordpredictor)
+
+# The level of verbosity in the information messages
+ve <- 0
+
+#' @description
+#' Used to setup the test environment
+#' @param rf The required files.
+#' @param ve The verbosity level.
+#' @return The list of directories in the test environment
+setup_env <- function(rf, ve) {
+    # An object of class EnvManager is created
+    em <- EnvManager$new(rp = "../", ve = ve)
+    # The required files are downloaded
+    ed <- em$setup_env(rf)
+
+    return(ed)
+}
+
+#' @description
+#' Used to clean up the test environment
+clean_up <- function(ve) {
+    # An object of class EnvManager is created
+    em <- EnvManager$new(ve = ve)
+    # The test environment is removed
+    em$td_env(F)
 }
 
 ## ----generate-model, results='hide', cache=FALSE------------------------------

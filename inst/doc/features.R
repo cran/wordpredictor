@@ -31,7 +31,36 @@ clean_up <- function(ve) {
     # An object of class EnvManager is created
     em <- EnvManager$new(ve = ve)
     # The test environment is removed
-    em$td_env(T)
+    em$td_env(F)
+}
+
+## ----example-prerequisite, echo=TRUE, message=FALSE, results='hide'-----------
+library(wordpredictor)
+
+# The level of verbosity in the information messages
+ve <- 0
+
+#' @description
+#' Used to setup the test environment
+#' @param rf The required files.
+#' @param ve The verbosity level.
+#' @return The list of directories in the test environment
+setup_env <- function(rf, ve) {
+    # An object of class EnvManager is created
+    em <- EnvManager$new(rp = "../", ve = ve)
+    # The required files are downloaded
+    ed <- em$setup_env(rf)
+
+    return(ed)
+}
+
+#' @description
+#' Used to clean up the test environment
+clean_up <- function(ve) {
+    # An object of class EnvManager is created
+    em <- EnvManager$new(ve = ve)
+    # The test environment is removed
+    em$td_env(F)
 }
 
 ## ----data-exploration, cache=FALSE--------------------------------------------
@@ -67,9 +96,9 @@ ssize <- 0.1
 dfp <- paste0(ed, "/input.txt")
 
 # The object size is formatted
-obj_size <- file.size(dfp)/10^6
+obj_size <- file.size(dfp) / 10^6
 # The proportion of data to sample
-prop <- (ssize/obj_size)
+prop <- (ssize / obj_size)
 # An object of class DataSampler is created
 ds <- DataSampler$new(dir = ed, ve = ve)
 # The sample file is generated.
@@ -118,7 +147,7 @@ fn <- paste0(ed, "/input.txt")
 # The clean file path
 cfn <- paste0(ed, "/input-clean.txt")
 # The data cleaning options
-dc_opts = list(
+dc_opts <- list(
     "min_words" = 2,
     "to_lower" = T,
     "remove_stop" = F,
@@ -148,7 +177,7 @@ fn <- paste0(ed, "/test-clean.txt")
 # The n-grams are generated
 for (n in 1:4) {
   # The ngram number is set
-  tg_opts = list("n" = n, "save_ngrams" = T, dir = ed)
+  tg_opts <- list("n" = n, "save_ngrams" = T, dir = ed)
   # The TokenGenerator object is created
   tg <- TokenGenerator$new(fn, tg_opts, ve = ve)
   # The ngram tokens are generated
@@ -221,9 +250,9 @@ da <- DataAnalyzer$new(ve = ve)
 # Bi-grams starting with "and_" are returned
 df <- da$get_ngrams(fn = fn, c = 10, pre = "^and_*")
 # The data frame is sorted by frequency
-df <- df[order(df$freq, decreasing = T),]
+df <- df[order(df$freq, decreasing = T), ]
 # The first 10 rows of the data frame are printed
-knitr::kable(df[1:10,], col.names = c("Prefix", "Frequency"))
+knitr::kable(df[1:10, ], col.names = c("Prefix", "Frequency"))
 
 # The test environment is cleaned up
 clean_up(ve)
@@ -250,7 +279,8 @@ ed <- setup_env(rf, ve)
 # The following code generates n-gram model using default options for data
 # cleaning and tokenization. See the following section on how to customize these
 # options. Note that input.txt is the name of the input data file. It should be
-# present in the data directory. dir is the directory containing the input and output files. It is set to the path of the environment directory, ed.
+# present in the data directory. dir is the directory containing the input and
+# output files. It is set to the path of the environment directory, ed.
 
 # ModelGenerator class object is created
 mg <- ModelGenerator$new(
